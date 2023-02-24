@@ -9,11 +9,16 @@ public class LogicScript : MonoBehaviour
     public int playerScore;
     public Text scoreText;
     public GameObject gameOverScreen;
+    public GameObject bird;
 
     [ContextMenu("Increase Score")]
     public void addScore(int scoreToAdd)
-    {
-        playerScore = playerScore + scoreToAdd;
+    { 
+        if (GameObject.FindGameObjectWithTag("Player").GetComponent<Bird>().birdIsAlive)
+        {
+            playerScore = playerScore + scoreToAdd;
+        }
+        
         scoreText.text = playerScore.ToString();
     }
 
