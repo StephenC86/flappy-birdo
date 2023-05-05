@@ -8,15 +8,14 @@ public class Bird : MonoBehaviour
     public float flapStrength;
     public LogicScript logic;
     public bool birdIsAlive = true;
-    public AudioSource audioSource;
+    public AudioSource birdAudioSource;
     public AudioClip flap;
-    public AudioClip death;
 
     // Start is called before the first frame update
     void Start()
     {
         logic = GameObject.FindGameObjectWithTag("Logic").GetComponent<LogicScript>();
-        audioSource.GetComponent<AudioSource>();
+        birdAudioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -25,8 +24,8 @@ public class Bird : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && birdIsAlive)
         {
             myRigidBody.velocity = Vector2.up * flapStrength;
-            audioSource.clip = flap;
-            audioSource.Play();
+            birdAudioSource.clip = flap;
+            birdAudioSource.Play();
         }
 
         if (transform.position.y > 17 || transform.position.y < -17)
@@ -38,8 +37,6 @@ public class Bird : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        audioSource.clip = death;
-        audioSource.Play();
         logic.gameOver();
         birdIsAlive = false;
     }

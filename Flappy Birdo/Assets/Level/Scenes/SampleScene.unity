@@ -862,9 +862,8 @@ MonoBehaviour:
   flapStrength: 11.73
   logic: {fileID: 0}
   birdIsAlive: 1
-  audioSource: {fileID: 1253787085}
+  birdAudioSource: {fileID: 1253787085}
   flap: {fileID: 8300000, guid: f5a67574a933477419367f3a1fa79ad5, type: 3}
-  death: {fileID: 8300000, guid: 5b31892ae3098df42b11c6dbd7ce2a4f, type: 3}
 --- !u!82 &1253787085
 AudioSource:
   m_ObjectHideFlags: 0
@@ -996,6 +995,10 @@ MonoBehaviour:
   gameOverScreen: {fileID: 524565635}
   bird: {fileID: 1253787079}
   audioSource: {fileID: 0}
+  flap: {fileID: 8300000, guid: f5a67574a933477419367f3a1fa79ad5, type: 3}
+  death: {fileID: 8300000, guid: 5b31892ae3098df42b11c6dbd7ce2a4f, type: 3}
+  score: {fileID: 8300000, guid: d82e4cd94444aa843b7084bfc400991d, type: 3}
+  soundPlayed: 0
 --- !u!4 &1282549650
 Transform:
   m_ObjectHideFlags: 0

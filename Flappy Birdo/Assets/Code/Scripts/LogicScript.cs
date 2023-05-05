@@ -11,7 +11,15 @@ public class LogicScript : MonoBehaviour
     public GameObject gameOverScreen;
     public GameObject bird;
     public AudioSource audioSource;
+    public AudioClip flap;
+    public AudioClip death;
+    public AudioClip score;
+    public bool soundPlayed = false;
 
+    public void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
 
     [ContextMenu("Increase Score")]
     public void addScore(int scoreToAdd)
@@ -23,7 +31,7 @@ public class LogicScript : MonoBehaviour
         
         scoreText.text = playerScore.ToString();
 
-        audioSource = GetComponent<AudioSource>();
+        audioSource.clip = score;
         audioSource.Play();
     }
 
@@ -34,6 +42,12 @@ public class LogicScript : MonoBehaviour
 
     public void gameOver()
     {
+        if (soundPlayed == false)
+        {
+            audioSource.clip = death;
+            audioSource.Play();
+            soundPlayed = true;
+        }
         gameOverScreen.SetActive(true);
     }
 }
