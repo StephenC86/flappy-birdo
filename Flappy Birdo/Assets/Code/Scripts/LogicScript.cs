@@ -10,6 +10,8 @@ public class LogicScript : MonoBehaviour
     public Text scoreText;
     public GameObject gameOverScreen;
     public GameObject bird;
+    public AudioSource audioSource;
+
 
     [ContextMenu("Increase Score")]
     public void addScore(int scoreToAdd)
@@ -20,6 +22,9 @@ public class LogicScript : MonoBehaviour
         }
         
         scoreText.text = playerScore.ToString();
+
+        audioSource = GetComponent<AudioSource>();
+        audioSource.Play();
     }
 
     public void restartGame()
