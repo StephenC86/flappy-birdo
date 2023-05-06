@@ -27,12 +27,12 @@ public class LogicScript : MonoBehaviour
         if (GameObject.FindGameObjectWithTag("Player").GetComponent<Bird>().birdIsAlive)
         {
             playerScore = playerScore + scoreToAdd;
+
+            audioSource.clip = score;
+            audioSource.Play();
         }
         
         scoreText.text = playerScore.ToString();
-
-        audioSource.clip = score;
-        audioSource.Play();
     }
 
     public void restartGame()
